@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        // 定义开始时间
+        // 定义开始时间戳
+        var startTime = new Date("2022/12/15").getTime();
+        // 更新时间
+        function updateTime() {
+            // 获取当前时间戳
+            var nowTime = new Date().getTime();
+            // var nowTime = Date.now();
+            // 时间戳差值,单位是毫秒
+            var time = startTime - nowTime;
+            // 秒
+            var seconds = time / 1000;
+            // 分
+            var minutes = seconds / 60;
+            // 时
+            var hours = minutes / 60;
+            // 天
+            var day = hours / 24;
+            var app = document.getElementById("app");
+            app.innerHTML = Math.floor(day) + "天:" +
+                Math.floor(hours % 24) + "时:" +
+                Math.floor(minutes % 60) + "分:" +
+                Math.floor(seconds % 60) + "秒";
+
+
+        }
+        updateTime();
+        setInterval(function() {
+            updateTime();
+        }, 300);
+    </script>
+</body>
+
+</html>
